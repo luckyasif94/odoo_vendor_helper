@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<odoo>
+
+	<!-- Vendor group given implied ids to user: all documents in sales team -->
+	<record id="group_sale_vendor" model="res.groups">
+		<field name="name">Vendor</field>
+		<field name="category_id" ref="base.module_category_sales_sales"/>
+		<field name="implied_ids" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+		<field name="comment">the vendor group</field>
+	</record>
+
+</odoo>

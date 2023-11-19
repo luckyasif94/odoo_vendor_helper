@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+	<!-- Vendor forecast form view -->
+	<record id="vendor_forecast_form_view" model="ir.ui.view">
+		<field name="name">Vendor Forecast Form</field>
+		<field name="model">vendor.forecast</field>
+		<field name="arch" type="xml">
+			<form string="Vendor Forecast">
+				<sheet>
+					<group>
+						<group>
+							<field name="product_id"/>
+							<field name="forecast_date"/>
+						</group>
+						<group>
+							<field name="expected_quantity" />
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- Vendor forecast tree view -->
+	<record id="vendor_forecast_tree_view" model="ir.ui.view">
+		<field name="name">Vendor Forecast Tree</field>
+		<field name="model">vendor.forecast</field>
+		<field name="arch" type="xml">
+			<tree string="Vendor Forecast">
+				<field name="product_id" />
+				<field name="expected_quantity" />
+				<field name="forecast_date" />
+			</tree>
+		</field>
+	</record>
+
+	<!-- Vendor Forecast action -->
+	<record id="action_vendor_forecast" model="ir.actions.act_window">
+		<field name="name">Vendor Forecast</field>
+		<field name="res_model">vendor.forecast</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<!-- Vendor Helper main menu in sale -->
+	<menuitem name="Vendor Helper" id="menu_fm_vendor_helper"
+		parent="sale.sale_menu_root" sequence="30" 
+		groups="sales_team.group_sale_salesman,sales_team.group_sale_salesman_all_leads,fm_vendor_helper.group_sale_vendor"/>
+	
+	<!-- vendor forecast menu -->
+	<menuitem parent="fm_vendor_helper.menu_fm_vendor_helper"
+		action="action_vendor_forecast" id="menu_vendor_forecast"
+		sequence="10" 
+		groups="sales_team.group_sale_salesman,sales_team.group_sale_salesman_all_leads,fm_vendor_helper.group_sale_vendor" />
+
+</odoo>

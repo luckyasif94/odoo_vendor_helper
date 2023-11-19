@@ -1,0 +1,27 @@
+<odoo>
+	<data>
+
+		<!-- The email template for notifying the procument team on creation/change to vendor adjustment request -->
+		<record id="email_template_vendor_request" model="mail.template">
+			<field name="name">Vendor Request Notification</field>
+			<field name="model_id" ref="model_vendor_adjustment_request" />
+			<field name="email_from" eval="False" />
+			<field name="email_to">admin@example.com</field>
+			<field name="subject">Vendor Adjustment Request Notification</field>
+			<field name="body_html">
+				<![CDATA[
+					<p>Dear Admin, </p>
+
+					<p>This is to notify you of a Vendor adjustment Request has been created by a vendor</p>
+
+					<a href="/web#id=${object.id}&view_type=form&model=vendor.adjustment.request&action=${object.get_record_ref()}">
+						View Vendor Adjustment request Details
+					</a>.
+				]]>
+			</field>
+		</record>
+
+
+
+	</data>
+</odoo>

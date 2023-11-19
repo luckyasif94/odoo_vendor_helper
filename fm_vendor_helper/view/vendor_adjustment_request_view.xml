@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+	<!-- Vendor Adjustment Request form view -->
+	<record id="vendor_adjustment_request_form_view" model="ir.ui.view">
+		<field name="name">Vendor Adjustment Request Form</field>
+		<field name="model">vendor.adjustment.request</field>
+		<field name="arch" type="xml">
+			<form string="Vendor Adjustment Request">
+				<sheet>
+					<group>
+						<group>
+							<field name="order_id"/>
+							<field name="adjustment_detail"/>
+                            <field name="comment"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- Vendor Adjustment Request tree view -->
+	<record id="vendor_adjustment_request_tree_view" model="ir.ui.view">
+		<field name="name">Vendor Adjustment Request Tree</field>
+		<field name="model">vendor.adjustment.request</field>
+		<field name="arch" type="xml">
+			<tree string="Vendor Adjustment Request">
+				<field name="order_id" />
+				<field name="adjustment_detail" />
+			</tree>
+		</field>
+	</record>
+
+	<!-- Vendor Adjustment Request action -->
+	<record id="action_vendor_adjustment_request" model="ir.actions.act_window">
+		<field name="name">Vendor Adjustment Request</field>
+		<field name="res_model">vendor.adjustment.request</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	
+	<!-- Vendor Adjustment Request menu -->
+	<menuitem parent="fm_vendor_helper.menu_fm_vendor_helper"
+		action="action_vendor_adjustment_request" id="menu_vendor_adjustment_request"
+		sequence="20" 
+		groups="fm_vendor_helper.group_sale_vendor" />
+
+</odoo>
